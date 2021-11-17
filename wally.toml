@@ -1,0 +1,11 @@
+[package]
+name = "csqrl/studio-plugin"
+description = "Roact components to build plugins purely with Roact"
+version = "1.0.0"
+license = "MIT"
+authors = ["csqrl (https://csqrl.dev)"]
+registry = "https://github.com/upliftgames/wally-index"
+realm = "shared"
+
+[dependencies]
+Roact = "roblox/roact@^1.4.2"

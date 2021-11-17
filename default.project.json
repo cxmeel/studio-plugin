@@ -1,0 +1,6 @@
+{
+  "name": "StudioPlugin",
+  "tree": {
+    "$path": "src"
+  }
+}

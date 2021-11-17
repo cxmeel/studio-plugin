@@ -1,0 +1,17 @@
+{
+  "name": "studio-plugin-serve",
+  "tree": {
+    "$className": "DataModel",
+    "$ignoreUnknownInstances": true,
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "$ignoreUnknownInstances": true,
+      "Packages": {
+        "$path": "Packages",
+        "StudioPlugin": {
+          "$path": "default.project.json"
+        }
+      }
+    }
+  }
+}
