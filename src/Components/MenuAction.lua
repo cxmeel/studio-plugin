@@ -41,7 +41,7 @@ function Component:_createAction()
       self.props.id,
       self.props.label,
       if type(self.props.icon) == "number"
-        then "rbxassetid://" .. tostring(self.props.icon)
+        then table.concat({"rbxassetid://", tostring(self.props.icon)}, "")
         else self.props.icon
     )
 

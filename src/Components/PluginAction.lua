@@ -31,7 +31,7 @@ function Component:init()
     self.props.label,
     self.props.tooltip,
     if type(self.props.icon) == "number"
-      then "rbxassetid://" .. tostring(self.props.icon)
+      then table.concat({"rbxassetid://", tostring(self.props.icon)}, "")
       else self.props.icon,
     self.props.bindable
   )

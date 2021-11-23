@@ -1,7 +1,7 @@
 [package]
 name = "csqrl/studio-plugin"
 description = "Roact components to build plugins purely with Roact"
-version = "1.0.0"
+version = "1.0.1"
 license = "MIT"
 authors = ["csqrl (https://csqrl.dev)"]
 registry = "https://github.com/upliftgames/wally-index"
