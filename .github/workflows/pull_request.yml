@@ -22,5 +22,4 @@ jobs:
         run: npm i -g moonwave wait-on concurrently
 
       - name: Check Moonwave Compiles
-        run: |
-          concurrently "wait-on http://localhost:3000 && exit 0" "moonwave dev" -kr -s "first"
+        run: moonwave build
