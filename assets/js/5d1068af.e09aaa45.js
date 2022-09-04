@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[394],{63891:s=>{s.exports=JSON.parse('{"sourceUrl":"https://github.com/csqrl/studio-plugin/blob/main","baseUrl":"/studio-plugin/","classOrder":[{"classes":["StudioPlugin"]},{"section":"Util","classes":["eventProps","tableUtil"]}],"apiCategories":[]}')}}]);
