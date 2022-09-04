@@ -1,0 +1,12 @@
+title = "StudioPlugin"
+gitSourceBranch = "main"
+changelog = true
+autoSectionPath = "src"
+
+[[classOrder]]
+classes = ["StudioPlugin"]
+
+[[navbar.items]]
+label = "Itch.io"
+href = "https://csqrl.itch.io"
+position = "right"

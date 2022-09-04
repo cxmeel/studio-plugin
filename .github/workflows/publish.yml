@@ -1,0 +1,29 @@
+name: Publish Package
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+jobs:
+  publish-wally:
+    if: ${{ github.event.release.prerelease == false }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.release.tag_name }}
+
+      - name: Setup Aftman
+        uses: ok-nick/setup-aftman@v0.2.0
+
+      - name: Publish to Wally
+        env:
+          WALLY_TOKEN: ${{ secrets.WALLY_TOKEN }}
+        run: |
+          mkdir -p ~/.wally
+          printf "[tokens]\n\"https://api.wally.run/\" = \"%s\"" "$WALLY_TOKEN" >> ~/.wally/auth.toml
+          wally publish

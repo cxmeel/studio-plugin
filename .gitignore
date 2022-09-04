@@ -1,3 +1,5 @@
 *.rbx*
 roblox.toml
 *packages/
+lsp.project.json
+build/
