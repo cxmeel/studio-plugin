@@ -4,15 +4,10 @@ registry = "test"
 
 [[package]]
 name = "csqrl/studio-plugin"
-version = "1.0.0"
-dependencies = [["Roact", "roblox/roact@1.4.2"]]
+version = "1.1.0"
+dependencies = [["Roact", "roblox/roact@1.4.4"]]
 
 [[package]]
 name = "roblox/roact"
-version = "1.4.2"
-dependencies = []
-
-[[package]]
-name = "roblox/testez"
-version = "0.4.1"
+version = "1.4.4"
 dependencies = []
