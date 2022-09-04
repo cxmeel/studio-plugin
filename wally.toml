@@ -1,6 +1,6 @@
 [package]
 name = "csqrl/studio-plugin"
-description = "Roact components to build plugins purely with Roact"
+description = "Roact components to scaffold and build out your plugins using purely Roact"
 version = "1.1.0"
 license = "MIT"
 authors = ["csqrl (https://csqrl.dev)"]
