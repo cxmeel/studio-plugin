@@ -19,7 +19,7 @@ jobs:
           node-version: lts/*
 
       - name: Install Dependencies
-        run: npm i -g moonwave wait-on concurrently
+        run: npm i -g moonwave
 
       - name: Check Moonwave Compiles
         run: moonwave build
