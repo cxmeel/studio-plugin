@@ -4,26 +4,26 @@
 
   ```lua
   Roact.createElement(Widget, {
-	id = "MyWidget",
-	title = "My Widget",
-	enabled = true,
-	minSize = Vector2.new(100, 178),
+    id = "MyWidget",
+    title = "My Widget",
+    enabled = true,
+    minSize = Vector2.new(100, 178),
 
-	[Roact.Event.WindowFocused] = function(rbx: DockWidgetPluginGui)
-	  print("Window focused!")
-	end,
+    [Roact.Event.WindowFocused] = function(rbx: DockWidgetPluginGui)
+      print("Window focused!")
+    end,
 
-	-- This is a custom event which is fired immediately after the
-	-- widget is created
-	[Roact.Event.OnInit] = function(rbx: DockWidgetPluginGui)
-	  print("Window initialized!")
-	end,
+    -- This is a custom event which is fired immediately after the
+    -- widget is created
+    [Roact.Event.OnInit] = function(rbx: DockWidgetPluginGui)
+      print("Window initialized!")
+    end,
 
-	-- This is a custom event which is fired when the widget's
-	-- enabled property is changed
-	[Roact.Event.OnToggle] = function(rbx: DockWidgetPluginGui)
-	  print("Window is", rbx.Enabled and "open" or "closed")
-	end,
+    -- This is a custom event which is fired when the widget's
+    -- enabled property is changed
+    [Roact.Event.OnToggle] = function(rbx: DockWidgetPluginGui)
+      print("Window is", rbx.Enabled and "open" or "closed")
+    end,
   })
   ```
 ]=]
@@ -50,12 +50,12 @@ local Component = Roact.Component:extend("PluginWidget")
   Default values:
   ```lua
   {
-	initState = Enum.InitialDockState.Float,
-	zindex = Enum.ZIndexBehavior.Sibling,
-	enabled = false,
-	overrideRestore = false,
-	floatSize = Vector2.new(300, 300),
-	minSize = Vector2.zero,
+    initState = Enum.InitialDockState.Float,
+    zindex = Enum.ZIndexBehavior.Sibling,
+    enabled = false,
+    overrideRestore = false,
+    floatSize = Vector2.new(300, 300),
+    minSize = Vector2.zero,
   }
   ```
 ]=]

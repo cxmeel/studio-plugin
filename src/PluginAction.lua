@@ -4,13 +4,13 @@
 
   ```lua
   Roact.createElement(PluginAction, {
-	id = "MyAction",
-	name = "My Action",
-	icon = "rbxassetid://123456789",
+    id = "MyAction",
+    name = "My Action",
+    icon = "rbxassetid://123456789",
 
-	[Roact.Event.Triggered] = function(rbx: PluginAction)
-	  print("Triggered!")
-	end,
+    [Roact.Event.Triggered] = function(rbx: PluginAction)
+      print("Triggered!")
+    end,
   })
   ```
 ]=]
@@ -36,11 +36,11 @@ local Component = Roact.Component:extend("PluginAction")
   Default values:
   ```lua
   {
-	name = "",
-	tooltip = "",
-	icon = "",
-	enabled = true,
-	bindable = true,
+    name = "",
+    tooltip = "",
+    icon = "",
+    enabled = true,
+    bindable = true,
   }
   ```
 ]=]

@@ -4,13 +4,13 @@
 
   ```lua
   Roact.createElement(ToolbarButton, {
-	id = "Button1",
-	name = "Button 1",
-	active = true,
+    id = "Button1",
+    name = "Button 1",
+    active = true,
 
-	[Roact.Event.Click] = function(rbx: PluginToolbarButton)
-	  print("Clicked!")
-	end,
+    [Roact.Event.Click] = function(rbx: PluginToolbarButton)
+      print("Clicked!")
+    end,
   })
   ```
 ]=]
@@ -37,12 +37,12 @@ local Component = Roact.Component:extend("PluginToolbarButton")
   Default values:
   ```lua
   {
-	name = "",
-	tooltip = "",
-	icon = "",
-	enabled = true,
-	active = false,
-	alwaysAvailable = true,
+    name = "",
+    tooltip = "",
+    icon = "",
+    enabled = true,
+    active = false,
+    alwaysAvailable = true,
   }
   ```
 ]=]
