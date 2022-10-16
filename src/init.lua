@@ -27,6 +27,14 @@ StudioPlugin.ToolbarButton = require(script.ToolbarButton)
 --- @within StudioPlugin
 StudioPlugin.Widget = require(script.Widget)
 
+--- @prop Menu Menu
+--- @within StudioPlugin
+StudioPlugin.Menu = require(script.Menu)
+
+--- @prop MenuItem MenuItem
+--- @within StudioPlugin
+StudioPlugin.MenuItem = require(script.MenuItem)
+
 --- @prop Hooks Hooks
 --- @within StudioPlugin
 StudioPlugin.Hooks = Hooks
