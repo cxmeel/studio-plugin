@@ -1,27 +1,27 @@
 --!strict
 --[=[
-    @class MenuItem
+	@class MenuItem
 
-    ```lua
-    Roact.createElement(MenuItem, {
-        id = "Item1",
-        label = "Item 1",
-        icon = 12345678,
+	```lua
+	Roact.createElement(MenuItem, {
+		id = "Item1",
+		label = "Item 1",
+		icon = 12345678,
 
-        metadata = {
-            item = 1,
-            amount = 100,
-        },
+		metadata = {
+			item = 1,
+			amount = 100,
+		},
 
-        [Roact.Event.Triggered] = function(item: PluginAction, metadata: unknown)
-            print("Item 1 activated")
-        end,
-    })
+		[Roact.Event.Triggered] = function(item: PluginAction, metadata: unknown)
+			print("Item 1 activated")
+		end,
+	})
 
-    Roact.createElement(MenuItem, {
-        separator = true,
-    })
-    ```
+	Roact.createElement(MenuItem, {
+		separator = true,
+	})
+	```
 ]=]
 local Roact = require(script.Parent.Parent.Roact)
 local Context = require(script.Parent.Context)
@@ -33,15 +33,19 @@ local makeIcon = require(script.Parent.Util.makeIcon)
 local Component = Roact.Component:extend("MenuItem")
 
 --[=[
-    @interface MenuItemProps
-    @within MenuItem
-    .id string? -- The unique ID of the menu item
-    .label string? -- The label of the menu item
-    .icon string? -- The icon of the menu item
-    .separator boolean? -- Whether the menu item is a separator
-    .metadata any? -- The metadata of the menu item
+	:::caution Warning
 
-    Note that `id` is required if `separator` is false.
+	`id` is required if `separator` is `false`.
+
+	:::
+
+	@interface MenuItemProps
+	@within MenuItem
+	.id string -- The unique ID of the menu item
+	.label string? -- The label of the menu item
+	.icon string? -- The icon of the menu item
+	.separator boolean? -- Whether the menu item is a separator
+	.metadata any? -- The metadata of the menu item
 ]=]
 export type MenuItemProps = {
 	label: string?,
