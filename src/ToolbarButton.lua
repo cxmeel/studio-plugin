@@ -67,7 +67,7 @@ Component.defaultProps = {
 
 function Component:init()
 	local button =
-		self.props.toolbar:CreateButton(self.props.id, self.props.tooltip, makeIcon(self.props.icon), self.props.label)
+		self.props.toolbar:CreateButton(self.props.id, self.props.tooltip, makeIcon(self.props.icon), self.props.name)
 
 	button.ClickableWhenViewportHidden = self.props.alwaysAvailable
 	button.Enabled = self.props.enabled

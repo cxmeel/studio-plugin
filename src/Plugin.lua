@@ -1,28 +1,28 @@
 --!strict
 --[=[
-  @class Plugin
+	@class Plugin
 
-  You shouldn't need to use this component. The context provider will
-  automatically detect the plugin, providing that this module is installed
-  within the plugin itself.
+	You shouldn't need to use this component. The context provider will
+	automatically detect the plugin, providing that this module is installed
+	within the plugin itself.
 
-  If you have installed this module outside of the plugin, you can use
-  this component to provide the plugin instance. You may also need to
-  use this component if you are using a plugin such as hotswap.
+	If you have installed this module outside of the plugin, you can use
+	this component to provide the plugin instance. You may also need to
+	use this component if you are using a plugin such as hotswap.
 
-  ```lua
-  Roact.createElement(Plugin, {
-    plugin = plugin,
-  })
-  ```
+	```lua
+	Roact.createElement(Plugin, {
+		plugin = plugin,
+	})
+	```
 ]=]
 local Roact = require(script.Parent.Parent.Roact)
 local Context = require(script.Parent.Context)
 
 --[=[
-  @interface PluginProps
-  @within Plugin
-  .plugin Plugin -- The plugin instance to use
+	@interface PluginProps
+	@within Plugin
+	.plugin Plugin -- The plugin instance to use
 ]=]
 export type PluginProps = {
 	plugin: Plugin,

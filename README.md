@@ -4,7 +4,7 @@ Helpful little Roact components to scaffold and build out your plugins using pur
 
 > **Warning**
 >
-> If you are upgrading from `v1.0.1` to `v1.1.0`, please read the [changelog.md][changelog] for breaking changes.
+> If you are upgrading from `v1.0.1` to `v1.1.0` or higher, please read the [changelog.md][changelog] for breaking changes.
 
 ```lua
 local StudioPlugin = require(path.to.StudioPlugin)
