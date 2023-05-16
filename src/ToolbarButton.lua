@@ -14,12 +14,12 @@
   })
   ```
 ]=]
-local Roact = require(script.Parent.Parent.Roact)
 local Context = require(script.Parent.Context)
+local Roact = require(script.Parent.Parent.Roact)
 
-local tableUtil = require(script.Parent.Util.tableUtil)
 local eventProps = require(script.Parent.Util.eventProps)
 local makeIcon = require(script.Parent.Util.makeIcon)
+local tableUtil = require(script.Parent.Util.tableUtil)
 
 local Component = Roact.Component:extend("PluginToolbarButton")
 
@@ -86,28 +86,30 @@ function Component:init()
 	self.button = button
 end
 
-function Component:didUpdate(prev: ToolbarButtonProps, next: ToolbarButtonProps)
-	if prev.active ~= next.active then
-		self.button:SetActive(next.active)
+function Component:didUpdate(oldProps: ToolbarButtonProps)
+	local newProps = self.props
+
+	if oldProps.active ~= newProps.active then
+		self.button:SetActive(newProps.active)
 	end
 
-	if prev.enabled ~= next.enabled then
-		self.button.Enabled = next.enabled
+	if oldProps.enabled ~= newProps.enabled then
+		self.button.Enabled = newProps.enabled
 	end
 
-	if prev.alwaysAvailable ~= next.alwaysAvailable then
-		self.button.ClickableWhenViewportHidden = next.alwaysAvailable
+	if oldProps.alwaysAvailable ~= newProps.alwaysAvailable then
+		self.button.ClickableWhenViewportHidden = newProps.alwaysAvailable
 	end
 
-	if prev.icon ~= next.icon then
-		self.button.Icon = makeIcon(next.icon)
+	if oldProps.icon ~= newProps.icon then
+		self.button.Icon = makeIcon(newProps.icon)
 	end
 
-	for eventName, callback in eventProps.changed(prev, next) do
+	for eventName, callback in eventProps.changed(oldProps, newProps) do
 		if self.events[eventName] ~= nil then
 			self.events[eventName]:Disconnect()
 		end
-
+		
 		if callback ~= eventProps.NONE then
 			self.events[eventName] = self.button[eventName]:Connect(function(...)
 				callback(self.button, ...)

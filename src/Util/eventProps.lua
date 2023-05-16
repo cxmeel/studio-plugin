@@ -1,4 +1,5 @@
 --!strict
+
 --[=[
 	@class eventProps
 	@private
@@ -33,7 +34,7 @@ local function PickEvents(props)
 	end
 
 	for prop, value in props do
-		if type(prop) == "table" and tostring(prop):match("RoactHostEvent(.*)") and prop.name ~= nil then
+		if type(prop) == "table" and tostring(prop):match("^RoactHostEvent%(.*%)$") and prop.name ~= nil then
 			events[prop.name] = value
 		end
 	end
@@ -45,25 +46,28 @@ end
 	@function changed
 	@within eventProps
 
-	@param prev table -- The previous props
-	@param next table -- The new props
+	@param oldProps table -- The old properties
+	@param newProps table -- The new properties
 	@return { [string]: (...any) -> void | userdata }
 
 	Extracts event props that have changed from the given props
 	tables. This is useful for determining which events need to
 	be connected/disconnected.
 ]=]
-local function ChangedEvents(prev, next)
+local function ChangedEvents(oldProps, newProps)
 	local events = {}
 
-	for eventName, callback in PickEvents(next) do
-		if prev[eventName] ~= callback then
+	local oldEvents = PickEvents(oldProps)
+	local newEvents = PickEvents(newProps)
+
+	for eventName, callback in newEvents do
+		if oldEvents[eventName] ~= callback then
 			events[eventName] = callback or NONE
 		end
 	end
 
-	for eventName, _ in PickEvents(prev) do
-		if next[eventName] == nil then
+	for eventName, _ in oldEvents do
+		if newEvents[eventName] == nil then
 			events[eventName] = NONE
 		end
 	end
