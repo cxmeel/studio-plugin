@@ -83,8 +83,8 @@ function Component:init()
 	self.action = action
 end
 
-function Component:didUpdate(prev: PluginActionProps, next: PluginActionProps)
-	for eventName, callback in eventProps.changed(prev, next) do
+function Component:didUpdate(oldProps: PluginActionProps)
+	for eventName, callback in eventProps.changed(oldProps, self.props) do
 		if self.events[eventName] ~= nil then
 			self.events[eventName]:Disconnect()
 		end

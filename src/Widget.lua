@@ -27,11 +27,11 @@
   })
   ```
 ]=]
-local Roact = require(script.Parent.Parent.Roact)
 local Context = require(script.Parent.Context)
+local Roact = require(script.Parent.Parent.Roact)
 
-local tableUtil = require(script.Parent.Util.tableUtil)
 local eventProps = require(script.Parent.Util.eventProps)
+local tableUtil = require(script.Parent.Util.tableUtil)
 
 local Component = Roact.Component:extend("PluginWidget")
 
@@ -80,8 +80,8 @@ Component.defaultProps = {
 }
 
 local CUSTOM_EVENTS = {
-	"OnInit",
-	"OnToggle",
+	["OnInit"] = true,
+	["OnToggle"] = true,
 }
 
 function Component:init()
@@ -111,7 +111,7 @@ function Component:init()
 	self.events = {}
 
 	for eventName, callback in eventProps.pick(self.props) do
-		if table.find(CUSTOM_EVENTS, eventName) ~= nil then
+		if CUSTOM_EVENTS[eventName] then
 			continue
 		end
 
@@ -131,21 +131,23 @@ function Component:didMount()
 	end
 end
 
-function Component:didUpdate(prev: WidgetProps, next: WidgetProps)
-	if prev.enabled ~= next.enabled then
-		self.widget.Enabled = next.enabled
+function Component:didUpdate(oldProps: WidgetProps)
+	local newProps = self.props
+
+	if oldProps.enabled ~= newProps.enabled then
+		self.widget.Enabled = newProps.enabled
 	end
 
-	if prev.title ~= next.title then
-		self.widget.Title = next.title
+	if oldProps.title ~= newProps.title then
+		self.widget.Title = newProps.title
 	end
 
-	if prev.zindex ~= next.zindex then
-		self.widget.ZIndexBehavior = next.zindex
+	if oldProps.zindex ~= newProps.zindex then
+		self.widget.ZIndexBehavior = newProps.zindex
 	end
 
-	for eventName, callback in eventProps.pick(next) do
-		if table.find(CUSTOM_EVENTS, eventName) ~= nil then
+	for eventName, callback in eventProps.changed(oldProps, newProps) do
+		if CUSTOM_EVENTS[eventName] then
 			continue
 		end
 
