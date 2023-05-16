@@ -1,5 +1,4 @@
 {
-  "workbench.iconTheme": "vanilla-icon-theme",
   "robloxLsp.diagnostics.severity": {
     "unused-local": "Error",
     "unused-function": "Error",
